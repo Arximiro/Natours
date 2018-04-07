@@ -14,3 +14,122 @@ Dark green: #28b485
 
   /* This does a global reset of these properties to account for different default browser behavior. */
 }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+
+  /* Setting font-values in the body allows all child elements to inherit them.
+     Padding will not be inherited.
+  */
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(126, 213, 111, 0.801),
+    rgba(40, 180, 133, 0.801)),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);   /* clip-path allows you to create a custom polygon. */
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+
+  /* Position abosolute places an item in an absolute position within it's relative parent element. */
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* This goes 50% of the way in on both x and y into the container when positioning it. */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+
+  /* backface-visibility: hidden;  This property fixes the issue where sometimes after an animation the text appears to bounce back to center a little. */
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
+  /* animation-delay: 3s;  this property can be used to delay the animation from happening when you load the page.
+     animation-iteration-count: 3;  this property will cause the animation to play a set amount of times.
+  */
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  animation: moveInRight 1s ease-out;
+  /*  You can write all of the below code in one line like above.
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; */
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px)
+  }
+
+  80% {
+    transform: translateX(10px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  }
+
+  /* This creates an animation to attach onto an element. How it works is first the element starts as invisible and it shifted left 100px.
+     Then it shifts right and fades in over the duration of the animation. At 80% it will go 10px past center, to give a little bounce back effect at 100%.
+     Then at 100% the element is back to center and completely visible.
+     These can be named anything you want, similar to a function.
+  */
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px)
+  }
+
+  80% {
+    transform: translateX(-10px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  } 
+}
