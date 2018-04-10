@@ -1,0 +1,50 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+
+  /* Setting font-values in the body allows all child elements to inherit them.
+     Padding will not be inherited.
+  */
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+
+  /* backface-visibility: hidden;  This property fixes the issue where sometimes after an animation the text appears to bounce back to center a little. */
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    padding-left: 3.5rem;
+  
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  
+    /* animation-delay: 3s;  this property can be used to delay the animation from happening when you load the page.
+       animation-iteration-count: 3;  this property will cause the animation to play a set amount of times.
+    */
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    padding-left: 1.74rem;
+  
+    animation: moveInRight 1s ease-out;
+    /*  You can write all of the below code in one line like above.
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; */
+  }
+}

@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+
+  //This does a global reset of these properties to account for different default browser behavior.
+}
+
+html {  
+  font-size: 62.5%;
+  // Setting font size to 62.5% allows 1 rem to equal 10px. Since a rem by default is 16px.
+}
+
+body {
+  box-sizing: border-box;
+}

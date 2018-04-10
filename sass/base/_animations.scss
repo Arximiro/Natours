@@ -1,0 +1,49 @@
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem)
+  }
+
+  80% {
+    transform: translateX(1rem)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  }
+
+  /* This creates an animation to attach onto an element. How it works is first the element starts as invisible and it shifted left 100px.
+     Then it shifts right and fades in over the duration of the animation. At 80% it will go 10px past center, to give a little bounce back effect at 100%.
+     Then at 100% the element is back to center and completely visible.
+     These can be named anything you want, similar to a function.
+  */
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem)
+  }
+
+  80% {
+    transform: translateX(-1rem)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  } 
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  } 
+}
