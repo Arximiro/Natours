@@ -84,45 +84,25 @@ body {
     animation-duration: 1s;
     animation-timing-function: ease-out; */ }
 
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  /* Setting font-values in the body allows all child elements to inherit them.
-     Padding will not be inherited.
-  */ }
-
-.heading-primary {
-  color: #fff;
+.heading-secondary {
+  font-size: 3.5rem;
   text-transform: uppercase;
-  margin-bottom: 6rem;
-  /* backface-visibility: hidden;  This property fixes the issue where sometimes after an animation the text appears to bounce back to center a little. */ }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    padding-left: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /* animation-delay: 3s;  this property can be used to delay the animation from happening when you load the page.
-       animation-iteration-count: 3;  this property will cause the animation to play a set amount of times.
-    */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.74rem;
-    padding-left: 1.74rem;
-    animation: moveInRight 1s ease-out;
-    /*  You can write all of the below code in one line like above.
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-out; */ }
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -171,7 +151,6 @@ body {
 
 .row {
   max-width: 114rem;
-  background-color: #eee;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
@@ -180,9 +159,7 @@ body {
     display: table;
     clear: both; }
   .row [class^="col-"] {
-    background-color: #a09490;
-    float: left;
-    padding: 20px; }
+    float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
   .row .col-1-of-2 {
@@ -226,3 +203,8 @@ body {
     transform: translate(-50%, -50%);
     /* This goes 50% of the way in on both x and y into the container when positioning it. */
     text-align: center; }
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }

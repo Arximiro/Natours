@@ -1,0 +1,11 @@
+.section-about {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh;
+}
+
+
+
+
+// --- Notes ---
+// -20vh eliminates the white background under the header from showing in the bottom right corner by moving this section up to cover it.
