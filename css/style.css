@@ -1,13 +1,48 @@
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); }
+  /* This creates an animation to attach onto an element. How it works is first the element starts as invisible and it shifted left 100px.
+     Then it shifts right and fades in over the duration of the animation. At 80% it will go 10px past center, to give a little bounce back effect at 100%.
+     Then at 100% the element is back to center and completely visible.
+     These can be named anything you want, similar to a function.
+  */ }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-  /* This does a global reset of these properties to account for different default browser behavior. */ }
+  box-sizing: inherit; }
 
 html {
   font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
 
 body {
   font-family: "Lato", sans-serif;
@@ -16,39 +51,9 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
-  box-sizing: border-box;
   /* Setting font-values in the body allows all child elements to inherit them.
      Padding will not be inherited.
   */ }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* clip-path allows you to create a custom polygon. Setting the X and Y axis of any number of defined points.
-  Point one is the reference point. It's location is relative to the container with 0%, 0% being the top left corner.
-  All other points are set relative to point one. So for this code it sets point one as 0% 0%, so the top left corner.
-  Point two is 100% x and 0% y from that, so right corner of the parent container.
-  Point three is 100% x from point 1 so far right, but 75vh y, so 75% down the parent container from point one's location.
-  Point four is 0% x from point one, meaning on the same x axis, but 100% y, ending up in the bottom right corner of the parent container.
-  You can make any custom polygon shape using this method and adding more points.*/ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-    /* Position abosolute places an item in an absolute position within it's relative parent element. */ }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* This goes 50% of the way in on both x and y into the container when positioning it. */
-    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -79,30 +84,45 @@ body {
     animation-duration: 1s;
     animation-timing-function: ease-out; */ }
 
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  80% {
-    transform: translateX(1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); }
-  /* This creates an animation to attach onto an element. How it works is first the element starts as invisible and it shifted left 100px.
-     Then it shifts right and fades in over the duration of the animation. At 80% it will go 10px past center, to give a little bounce back effect at 100%.
-     Then at 100% the element is back to center and completely visible.
-     These can be named anything you want, similar to a function.
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  /* Setting font-values in the body allows all child elements to inherit them.
+     Padding will not be inherited.
   */ }
 
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+  /* backface-visibility: hidden;  This property fixes the issue where sometimes after an animation the text appears to bounce back to center a little. */ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    padding-left: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* animation-delay: 3s;  this property can be used to delay the animation from happening when you load the page.
+       animation-iteration-count: 3;  this property will cause the animation to play a set amount of times.
+    */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    padding-left: 1.74rem;
+    animation: moveInRight 1s ease-out;
+    /*  You can write all of the below code in one line like above.
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; */ }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -149,10 +169,60 @@ body {
   animation-fill-mode: backwards;
   /* This applies the styles of the animation at 0%, so the button starts as invisible. */ }
 
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: #a09490;
+    float: left;
+    padding: 20px; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-3 {
+    width: calc( 2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-2-of-4 {
+    width: calc( 2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc( 3 * ((100% - 3 * 6rem) / 4) +  (2 * 6rem)); }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* clip-path allows you to create a custom polygon. Setting the X and Y axis of any number of defined points.
+  Point one is the reference point. It's location is relative to the container with 0%, 0% being the top left corner.
+  All other points are set relative to point one. So for this code it sets point one as 0% 0%, so the top left corner.
+  Point two is 100% x and 0% y from that, so right corner of the parent container.
+  Point three is 100% x from point 1 so far right, but 75vh y, so 75% down the parent container from point one's location.
+  Point four is 0% x from point one, meaning on the same x axis, but 100% y, ending up in the bottom right corner of the parent container.
+  You can make any custom polygon shape using this method and adding more points.*/ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    /* Position abosolute places an item in an absolute position within it's relative parent element. */ }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* This goes 50% of the way in on both x and y into the container when positioning it. */
+    text-align: center; }
