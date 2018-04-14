@@ -12,9 +12,17 @@
     rgba($color-primary-dark, 0.801)),
     url(../img/nat-4.jpg);
   background-size: cover;
+  margin-top: -14rem;
+
+  transform: skewY(-7deg);
+
+  & > * {
+    transform: skewY(7deg);
+  }
 }
 
 
 
 // --- Notes ---
 // -20vh eliminates the white background under the header from showing in the bottom right corner by moving this section up to cover it.
+// & > * selects all DIRECT children of section-features. So not children of children.
