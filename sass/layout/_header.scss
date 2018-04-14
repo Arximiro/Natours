@@ -9,6 +9,7 @@
   background-position: top;
   position: relative;
 
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* clip-path allows you to create a custom polygon. Setting the X and Y axis of any number of defined points.
   Point one is the reference point. It's location is relative to the container with 0%, 0% being the top left corner.
