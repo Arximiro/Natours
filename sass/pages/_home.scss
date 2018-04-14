@@ -27,7 +27,23 @@
   margin-top: -17vh;
 }
 
+.section-stories {
+  padding: 15rem 0;
+  background-color: $color-grey-light-1;
+}
+
 
 // --- Notes ---
-// -20vh eliminates the white background under the header from showing in the bottom right corner by moving this section up to cover it.
-// & > * selects all DIRECT children of section-features. So not children of children.
+// -20vh in about eliminates the white background under the header from showing in the bottom right corner by moving this section up to cover it.
+
+// Padding is set to 20top/bottom and 0left/right
+// Margin is set to -14vh to slide element up behind clip-path.
+// In features & > * selects all DIRECT children of section-features. So not children of children.
+// The features section in its entirety is skewed by 7 degrees, THEN, all direct children of features are skewed 7 degrees to compensate for that, so they remain level.
+// Only direct children are corrected, if all children were then a parent would be skewed by 7, then its child an additional 7 etc.
+// It would be possible to just select .row since it's the only direct child, but since it's a re-used class, the direct children only approach prevents any future issues.
+
+
+// In tours padding is set to 25top 0right 15bottom 0left.
+// Element is moved up 17vh to slide behing the clip-path.
+

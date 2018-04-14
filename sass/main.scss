@@ -14,6 +14,7 @@
 @import "components/card";
 @import "components/composition";
 @import "components/feature-box";
+@import "components/story";
 
 // Layout
 @import 'layout/grid';
@@ -21,3 +22,6 @@
 
 // Pages
 @import "pages/home";
+
+
+// When importing files the _ and the .scss can be ignored.
