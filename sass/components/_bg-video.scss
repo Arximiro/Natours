@@ -1,0 +1,24 @@
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+// object-fit: is a new CSS property similar to bgsize
+// cover makes the video or object take up the entirety of the parent element and retain its aspect ratio, even if it has to overflow to do so. It also zooms in to fill height.
+// fill fills the entire parent element and distorts aspect ratio to do so.
+// contain tries to fill its parent element without clipping anything or changing the video size.
+
+// overflow hidden prevents the video from overflowing outside of its parent div.
+// since to preserve the aspect ratio it would have to overflow on the sides depending on the video.
