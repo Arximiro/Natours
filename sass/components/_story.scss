@@ -53,7 +53,7 @@
 
   &:hover &__img {
     transform: translateX(-4rem) scale(1);
-    filter: blur(3px) brightness(80%);
+    filter: blur(.3rem) brightness(80%);
   }
 }
 
@@ -69,4 +69,10 @@
 // Since there is already a transform applied to the shape, you can't use the select all direct children, since only a single transform can be applied to an element.
 // Instead it's just applied to the text and shape individually.
 
+// The image is a bit off center, so the translateX-4rem centers it inside its box.
+// backface-visiblity hidden fixes a weird glitch that causes the image to be oval.
+
+
 // in caption, backface-visiblity hidden helps fix a glitch where text slides in then repositions itself like 1px.
+// When the box is hovered over, the caption becomes visible and is centered.
+// Also when hovered the image is scaled back to normal size to give a zoom out effect and a blur is applied.
