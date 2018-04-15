@@ -4,4 +4,39 @@
   box-shadow: 0 3rem 6rem rgba($color-black, .1);
   background-color: $color-white;
   border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+  }
+
+  &__img {
+    height: 100%;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
 }
+
+// --- Notes ---
+// float: left on shape allows it to float to th eleft of the text within the parent element.
+// shape outside only works if the element is floated and has defined dimenstions. width/height etc.
+// shape-outside: circle(50% at 50% 50%); The first number is the radius. Which will be 7.5 both for height and width.
+// If the radius is 7.5, that means the diameter of the circle will be 15rem.
+// The 2nd and 3rd numbers indicate the center of the circle for both height and width, which are also the same, 50%, or at the 7.5rem point.
+
+// The story element is skewed -12deg on the x axis for the sideways box effect.
+// The rest of the content inside has to be skewed back 12deg to compensate for that.
+// Since there is already a transform applied to the shape, you can't use the select all direct children, since only a single transform can be applied to an element.
+// Instead it's just applied to the text and shape individually.
