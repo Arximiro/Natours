@@ -32,6 +32,28 @@
   padding: 15rem 0;
 }
 
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.book {
+  background-image: linear-gradient(105deg,
+   rgba($color-white, .8) 0%,
+   rgba($color-white, .8) 50%,
+   transparent 50.1%),
+   url(../img/nat-10.jpg);
+  background-size: cover;
+  border-radius: .3rem;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+  height: 50rem;
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
+}
 
 // --- Notes ---
 // -20vh in about eliminates the white background under the header from showing in the bottom right corner by moving this section up to cover it.
@@ -47,3 +69,11 @@
 // In tours padding is set to 25top 0right 15bottom 0left.
 // Element is moved up 17vh to slide behing the clip-path.
 
+
+// in book there is a lot happening with the background.
+// first a linear gradient is created, this gradient is 105deg, this sets the angle of the gradient.
+// at 0% the gradient starts with white at a .9 opacity
+// then at 50% the gradient is white also with a .9 opacity. This creates pretty much a white to white gradient.
+// at 50.1% transparent starts, this allows the rest to be clear. Since transparent is after the 2nd white it takes over for the last 50%.
+// *starting transparent at 50.1 instead of 50 helps with a jagged edge glitch all browsers but Firefox seem to experience.
+// then the image is set, and it goes behind the gradient.
