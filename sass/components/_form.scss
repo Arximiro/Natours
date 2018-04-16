@@ -1,0 +1,67 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: .2rem;
+    background-color: rgba($color-white, .5);
+    border: .3rem solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .3s;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: .3rem solid $color-primary;
+
+      &:invalid {
+        border-bottom: .3rem solid rgb(202, 61, 61);
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+}
+
+// ---Notes---
+// inputs don't inherit the font family and color from the parent so it must be set here.
+// border around input is set to transparent so it still exists but is invisible. This way when the visibile border appears the boxes don't shift .3rem.
+// Setting display to block forces the label to appear below the input.
+
+// The invalid pseuso class is used to show the user when their input value does not meet the required parameters for that input.
+
+// outline none disables the default blue outline that appears around an input when selected.
+
+// The adjacent sibling selector + is used like this. &__input:placeholder-shown + &__label
+// If selects the input's placeholder-shown pseudo class, then it selecs the label class after. It works because they are on the same level in the html.
+// If the elements are not adjacent, you can use the general sibling selector ~.
+
+// To make the placeholder be invisible when the box is empty, a few techniques are used.
+// First the adjacent sibling selector is used to say WHEN the placeholder of input is shown, set the label opacity to 0 or invisible and visibility to hidden.
+// Visibility hidden makes the label actual not rendered and just invisible as would be the case if only opacity was used.
+// The reason this is also needed is because if only opacity is set, the user could still click the invisible label to focus an input.
+// You can't JUST use visibility howerver, because you cannot animate visibility. So you need opacity there to animate.
+// The translateY -4rem, makes it to where the label starts inside the input, and when the user starts typing it moves down to it's original position.
