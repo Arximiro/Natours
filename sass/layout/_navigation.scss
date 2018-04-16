@@ -1,0 +1,170 @@
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+  
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 102;
+    box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient($color-primary-light, $color-primary-dark);
+    z-index: 100;
+    transition: transform .8s;
+  }
+
+  &__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 101;
+    
+    opacity: 0;
+    width: 0;
+    transition: all .8s;
+  }
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+      background-size: 220%;
+      transition: all.4s;
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary-dark;
+      transform: translateX(1rem);
+    }
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%
+  }
+
+  &__icon {
+    position: relative;
+    margin-top: 3.3rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all .3s;
+    }
+
+    &::before { top: -.8rem;}
+    &::after {top: .8rem;}
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
+
+// ---Notes---
+// The checkbox is set to invisible to create the menu icon effect.
+
+// The button has a white background and is fixed so it scrolls with the page.
+// It's positioned 6rem down and 6rem from the right of the page.
+// The text align is set to center so the span elements tha make up the bars are center.
+
+// The background is slightly smaller than the button and is also fixed behind it.
+// It's what makes up the expanding gradient when the menu icon is clicked.
+// When the invisible checkbox is checked, it expands over .8s to 80x its size to take up the whole page.
+
+// The nav container takes up 100% of the viewport height and is also fixed at the top right.
+// This is where the optiosn list exists, it starts invisible and with no width.
+// When the invisible checkbox becomes checker, it becomes visivle and expands too 100% width.
+// 100vw would take into account the width of the scroll bar, so 100% is used to make sure it's centered.
+
+// The list is positioned absolutely 50% fromt he top and left.
+// It uses the transform -50 -50 to make sure it's always centered.
+// Text align center is set to make sure all links in the nav are centered.
+
+// each item in the list gets a margin of 1rem on all sides.
+
+// each link is set as inline-block so it can have its own padding.
+// The background image is set as a solid color linear gradient.
+// From 0 to 50% the background is transparent, the rest is white.
+// Since the size is set to 220% you don't see any of it until you hover
+// at which point over .4s the size is reduced and the gradient slides across.
+
+// The icon consists of one span tag with a before and after pseudo element.
+// They are set to inline-block so they only take up the space they need.
+// The before and after pseudo elements are positioned absolutely against the left side.
+// Then they positoned vertically -.8 and .8 rem respectively.
+// When the button is hovered over the top and bottom pseudo elements move slightly to emulate an expanding icon.
+// When the checkbox is checked, the before and after pseudo elements rotate to make an X. The main one becomes transparent.
