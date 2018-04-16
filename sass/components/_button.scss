@@ -100,3 +100,5 @@
 // ---Notes---
 // The first & is for the properties needed for the actual button element.
 // since buttons don't have link and visited pseudo classes.
+// The &focus is for the properties needed for the actual button element for when it's focused.
+// An actual button element is needed inside of a form, instead of the usual anchor tag button.

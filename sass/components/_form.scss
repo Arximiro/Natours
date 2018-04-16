@@ -111,3 +111,10 @@
 // The reason this is also needed is because if only opacity is set, the user could still click the invisible label to focus an input.
 // You can't JUST use visibility howerver, because you cannot animate visibility. So you need opacity there to animate.
 // The translateY -4rem, makes it to where the label starts inside the input, and when the user starts typing it moves down to it's original position.
+
+// Each radio group is set to 49% width and inline block to make them appear side by side. 50% is too much.
+// The actual radio input is set to hidden so that custom radio buttons can be used. It's still back there though.
+
+// radio button is an empty span used for the outline of the custom radio button.
+// radio button after is a pseudo element that makes up the checked dot in the custom radio button after if it clicked it starts invisible.
+// &__radio-input:checked + &__radio-label &__radio-button::after -- adjacent child to radio input when checked is selected, then its child's after pseudo element is selected.
