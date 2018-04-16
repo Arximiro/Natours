@@ -1,13 +1,14 @@
-.u-center-text {text-align: center;}
+.u-center-text {text-align: center !important;}
 
-.u-margin-bottom-small {margin-bottom: 1.5rem;}
-.u-margin-bottom-medium {margin-bottom: 4rem;}
-.u-margin-bottom-big {margin-bottom: 8rem;}
+.u-margin-bottom-small {margin-bottom: 1.5rem !important;}
+.u-margin-bottom-medium {margin-bottom: 4rem !important;}
+.u-margin-bottom-big {margin-bottom: 8rem !important;}
 
-.u-margin-top-big {margin-top: 8rem;}
-.u-margin-top-huge {margin-top: 10rem;}
+.u-margin-top-big {margin-top: 8rem !important;}
+.u-margin-top-huge {margin-top: 10rem !important;}
 
 
 // --- Utility Notes ---
+// !important is used so these always take precedence over other selectors that may adjust the same values.
 // Utility classes allow us to add classes for specific components that only apply to them.
 // This allows said components to be re-usable down the line, since the utility classes are only used for certain instances.
