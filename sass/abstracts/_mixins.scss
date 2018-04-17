@@ -5,3 +5,20 @@
     clear: both;
   }
 }
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// ---Notes---
+// The clearfix mixin fixes an issue where when using floats the parent element's height will collapse.
+// It creates a pseudo element that goes after the parent and takes its place.
+
+// For absCenter, you take an element and position it as absolute inside the parent element.
+// The parent element has to be set as relative, and it helps to set top and left to 0 in the parent to set the point of origin, even though it's the default.
+// Then you apply the mixin in the child element, it places the top left corner of the child element 50% from the top and 50% from the left of the parent.
+// The point of origin for translate is the center of the current element. So the -50 -50 takes the center of the current element and shift it
+// -50% in both the X and Y direction. Essentially centering the element perfectly.

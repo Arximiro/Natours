@@ -15,6 +15,11 @@
     display: block;
     transition: all .3s;
 
+    &:required {
+      box-shadow: none;
+       // Specific fix for Firefox to get rid of the default red outline that appears after typing text into an input field then removing it.
+    }
+
     &:focus {
       outline: none;
       box-shadow: 0 1rem 2rem rgba($color-black, .1);
@@ -22,7 +27,7 @@
 
       &:invalid {
         border-bottom: .3rem solid rgb(202, 61, 61);
-      }
+      }      
     }
 
     &::-webkit-input-placeholder {
