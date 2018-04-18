@@ -485,7 +485,7 @@ body {
 .form__radio-group {
   width: 49%;
   display: inline-block; }
-  @media (max-width: 56.25em) {
+  @media (max-width: 75em) {
     .form__radio-group {
       width: 100%;
       margin-bottom: 2rem; } }
@@ -753,7 +753,7 @@ body {
   background-size: cover;
   background-position: top;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 75vh 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* clip-path allows you to create a custom polygon. Setting the X and Y axis of any number of defined points.
   Point one is the reference point. It's location is relative to the container with 0%, 0% being the top left corner.
@@ -762,9 +762,13 @@ body {
   Point three is 100% x from point 1 so far right, but 75vh y, so 75% down the parent container from point one's location.
   Point four is 0% x from point one, meaning on the same x axis, but 100% y, ending up in the bottom right corner of the parent container.
   You can make any custom polygon shape using this method and adding more points.*/ }
+  @media (max-width: 75em) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 90vh 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%); } }
   @media (max-width: 37.5em) {
     .header {
-      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+      -webkit-clip-path: polygon(0 0, 100% 0, 85vh 85vh, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
   .header__logo-box {
     position: absolute;
@@ -900,6 +904,9 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh; }
+  @media (max-width: 75em) {
+    .section-about {
+      padding: 30rem 0; } }
   @media (max-width: 56.25em) {
     .section-about {
       padding: 20rem 0; } }
@@ -920,6 +927,9 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0 15rem 0;
   margin-top: -17vh; }
+  @media (max-width: 75em) {
+    .section-tours {
+      padding: 30rem 0 10rem 0; } }
   @media (max-width: 56.25em) {
     .section-tours {
       padding: 20rem 0 10rem 0; } }

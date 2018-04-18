@@ -9,7 +9,7 @@
   background-position: top;
   position: relative;
 
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 75vh 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* clip-path allows you to create a custom polygon. Setting the X and Y axis of any number of defined points.
   Point one is the reference point. It's location is relative to the container with 0%, 0% being the top left corner.
@@ -19,8 +19,14 @@
   Point four is 0% x from point one, meaning on the same x axis, but 100% y, ending up in the bottom right corner of the parent container.
   You can make any custom polygon shape using this method and adding more points.*/
 
+  @include respond(tab-land) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 90vh 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+  }
+
+
   @include respond(phone) {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 85vh 85vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
   }
 
