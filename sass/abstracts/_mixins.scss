@@ -48,6 +48,9 @@
 // Content is passed in wherever this mixin is used in the form of a code block.
 
 @mixin respond($breakpoint) {
+  @if $breakpoint == small-phone {
+    @media (max-width: 25em) { @content }; //400px
+  }
   @if $breakpoint == phone {
     @media (max-width: 37.5em) { @content }; //600px
   }
@@ -59,5 +62,5 @@
   }
   @if $breakpoint == big-desktop {
     @media (min-width: 112.5em) { @content }; //1800+px
-  }
+  }  
 }
