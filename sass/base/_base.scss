@@ -11,6 +11,22 @@
 html {  
   font-size: 62.5%;
   // Setting font size to 62.5% allows 1 rem to equal 10px. Since a rem by default is 16px.
+  
+  @include respond(tab-land) { // width < 1200px
+    font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) { // width < 900px
+    font-size: 50%; // 1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) { // width > 1800px
+    font-size: 75%; // 1 rem = 12px, 12/16 = 75%
+  }
+
+  // These media queries are defined in the mixins file.
+  // The order of media queries matters when using max width. Since at a higher width multiple queries will fit the criteria.
+  // So to prevent the smaller ones from applying when they shouldn't, you list them further down.
 }
 
 body {

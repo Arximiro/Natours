@@ -13,6 +13,7 @@
   transform: translate(-50%, -50%);
 }
 
+
 // ---Notes---
 // The clearfix mixin fixes an issue where when using floats the parent element's height will collapse.
 // It creates a pseudo element that goes after the parent and takes its place.
@@ -22,3 +23,39 @@
 // Then you apply the mixin in the child element, it places the top left corner of the child element 50% from the top and 50% from the left of the parent.
 // The point of origin for translate is the center of the current element. So the -50 -50 takes the center of the current element and shift it
 // -50% in both the X and Y direction. Essentially centering the element perfectly.
+
+
+
+
+// Media Query Manager
+// 0px - 600px =     Phone
+// 600px - 900px =   Tablet Portrait
+// 900px - 1200px =  Tablet Landscape
+// 1200px - 1800px = Normal Styles Apply
+// 1800px + =        Big Desktop
+
+// $breakpoint argument choices:
+// - phone
+// - tab-port
+// - tab-land
+// - big-desktop
+
+// 1em = 16px always for media queries.
+// rems and ems are not affected by default font size set in html. ems are more performant for media queries.
+
+// Content is passed in wherever this mixin is used in the form of a code block.
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { @content }; //600px
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { @content }; //900px
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { @content; } //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { @content }; //1800+px
+  }
+}
