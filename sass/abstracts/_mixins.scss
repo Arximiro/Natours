@@ -43,6 +43,8 @@
 // 1em = 16px always for media queries.
 // rems and ems are not affected by default font size set in html. ems are more performant for media queries.
 
+// ORDER: Base + typography > general layout + grid > page layout > components
+
 // Content is passed in wherever this mixin is used in the form of a code block.
 
 @mixin respond($breakpoint) {
