@@ -48,6 +48,9 @@ html {
       font-size: 50%; } }
   @media (min-width: 112.5em) {
     html {
+      font-size: 68.75%; } }
+  @media (min-width: 150em) {
+    html {
       font-size: 75%; } }
 
 body {

@@ -62,5 +62,8 @@
   }
   @if $breakpoint == big-desktop {
     @media (min-width: 112.5em) { @content }; //1800+px
-  }  
+  }
+  @if $breakpoint == huge-desktop {
+    @media (min-width: 150em) { @content }; //2400+px
+  }
 }
