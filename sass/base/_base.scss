@@ -41,3 +41,15 @@ body {
     padding: 0;
   }
 }
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+// ---Notes---
+// This file is used to define base styles that apply to the whole site.
+// Its generally used to set a font size so developers can then have 1rem = 10px.
+// You can also use this file to set any other global styles you want, and add media queries that should apply globally.
+
+// The ::selection changes the default color of text when its selected. So instead of blue it uses the theme of the site.

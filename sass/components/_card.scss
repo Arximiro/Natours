@@ -1,9 +1,9 @@
 .card {
   // FUNCTIONALITY
+  -moz-perspective: 150rem;
   perspective: 150rem;
   position: relative;
   height: 52rem;
-  //-moz-perspective: 150rem;
   
   &__side {
     height: 52rem;
@@ -86,8 +86,8 @@
     
   }
 
-  &__heading-span {
-    padding: 1rem 1.5rem;
+  &__heading-span {    
+    padding: .5rem;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
 
@@ -155,11 +155,9 @@
     font-size: 6rem;
     font-weight: 100;
   }
-  
-
-
-
-  @include respond(tab-port) {
+    
+  @media only screen and (max-width: 56.25em),
+     only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
     background-color: $color-white;
@@ -242,3 +240,7 @@
 // Then it's translated -50% on each axis to center it.
 // In short this created a smalled box inside the parent element on the back of the card.
 // It only takes up 90% of the available width and 50% of the height, centered veritcally.
+
+// The media query used here changes how the cards work quite a lot.
+// Since users on smaller devices cannot hover usually, and the cards rely heavily on that
+// the media query defines a width, and also says for screens that don't have the ability to hover.
