@@ -2,7 +2,3 @@ node_modules
 css-notes.md
 yarn-error.log
 grid-demo.html
-
-css/style.comp.css
-css/style.concat.css
-css/style.prefix.css
