@@ -1,9 +1,9 @@
 {
-  "name": "natours",
+  "name": "tourzis",
   "version": "1.0.0",
-  "description": "trip site landing page",
+  "description": "landing page for a fictional tour company",
   "main": "index.js",
-  "repository": "git@github.com:Arximiro/Natours.git",
+  "repository": "git@github.com:Arximiro/Tourzis.git",
   "author": "David Ridgley",
   "license": "MIT",
   "scripts": {
